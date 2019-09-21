@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { AuthService } from "src/app/services/auth.service";
 import { Router } from "@angular/router";
+import { TokenService } from "src/app/services/token.service";
 
 @Component({
   selector: "app-register",
@@ -10,7 +11,11 @@ import { Router } from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private tokenService: TokenService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -27,7 +32,7 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(user.value).subscribe(
       res => {
         console.log(res);
-        localStorage.setItem("token", res.token);
+        this.tokenService.setToken(res.token);
         this.router.navigate(["/dashboard"]);
       },
       err => {

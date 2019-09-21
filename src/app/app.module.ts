@@ -12,6 +12,7 @@ import { HomeMainContentComponent } from "./components/home-main-content/home-ma
 import { HomeFooterComponent } from "./components/home-footer/home-footer.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ImagesComponent } from "./components/images/images.component";
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImagesComponent } from "./components/images/images.component";
     HomeMainContentComponent,
     HomeFooterComponent,
     DashboardComponent,
-    ImagesComponent
+    ImagesComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,
