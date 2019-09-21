@@ -1,15 +1,32 @@
 <div>
+  <!-- Showing server error messages(if any)  -->
+  <div
+    class="alert alert-danger mx-auto mt-5"
+    *ngIf="loginForm.errors?.servererror"
+    style="width:25rem;"
+  >
+    {{ loginForm.errors.server }}
+  </div>
+  <!-- Login Card  -->
   <div class="card mx-auto mt-5" style="width:25rem;">
     <div class="card-header"><h3>Login</h3></div>
     <div class="card-body">
-      <form class="px-3">
+      <form
+        class="px-3"
+        [formGroup]="loginForm"
+        (ngSubmit)="loginUser(loginForm)"
+      >
         <div class="form-group">
           <label>Email</label>
-          <input type="email" class="form-control" />
+          <input type="email" class="form-control" formControlName="email" />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" />
+          <input
+            type="password"
+            class="form-control"
+            formControlPassword="password"
+          />
         </div>
         <div class="form-group mt-4">
           <button class="btn btn-primary">Login</button>

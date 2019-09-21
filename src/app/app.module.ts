@@ -1,15 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeMainContentComponent } from './components/home-main-content/home-main-content.component';
-import { HomeFooterComponent } from './components/home-footer/home-footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ImagesComponent } from './components/images/images.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { HomeMainContentComponent } from "./components/home-main-content/home-main-content.component";
+import { HomeFooterComponent } from "./components/home-footer/home-footer.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { ImagesComponent } from "./components/images/images.component";
 
 @NgModule({
   declarations: [
@@ -22,11 +23,8 @@ import { ImagesComponent } from './components/images/images.component';
     DashboardComponent,
     ImagesComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
