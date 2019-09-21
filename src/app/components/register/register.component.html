@@ -1,1 +1,111 @@
-<p>register works!</p>
+<div>
+  <!-- Showing server error messages(if any)  -->
+  <div
+    class="alert alert-danger mx-auto mt-5 text-center"
+    *ngIf="registerForm.errors?.serverError"
+    style="width:25rem;"
+  >
+    {{ registerForm.errors.serverError }}
+  </div>
+  <!-- Login Card  -->
+  <div class="card mx-auto mt-5 mb-5" style="width:25rem;">
+    <div class="card-header"><h3>Register</h3></div>
+    <div class="card-body">
+      <form
+        class="px-3"
+        [formGroup]="registerForm"
+        (ngSubmit)="registerUser(registerForm)"
+      >
+        <div class="form-group">
+          <label>Firstname</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstname"
+            [class.is-invalid]="
+              registerForm.get('firstname').errors?.serverError
+            "
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="registerForm.get('firstname').errors?.serverError"
+            >{{ registerForm.get("firstname").errors.serverError }}</span
+          >
+        </div>
+        <div class="form-group">
+          <label>Lastname</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lastname"
+            [class.is-invalid]="
+              registerForm.get('lastname').errors?.serverError
+            "
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="registerForm.get('lastname').errors?.serverError"
+            >{{ registerForm.get("lastname").errors.serverError }}</span
+          >
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            [class.is-invalid]="registerForm.get('email').errors?.serverError"
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="registerForm.get('email').errors?.serverError"
+            >{{ registerForm.get("email").errors.serverError }}</span
+          >
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            [class.is-invalid]="
+              registerForm.get('password').errors?.serverError
+            "
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="registerForm.get('password').errors?.serverError"
+            >{{ registerForm.get("password").errors.serverError }}</span
+          >
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password_confirmation"
+            [class.is-invalid]="
+              registerForm.get('password_confirmation').errors?.serverError
+            "
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registerForm.get('password_confirmation').errors?.serverError
+            "
+            >{{
+              registerForm.get("password_confirmation").errors.serverError
+            }}</span
+          >
+        </div>
+        <div class="form-group mt-4">
+          <button class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      Already registered?
+      <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</div>
