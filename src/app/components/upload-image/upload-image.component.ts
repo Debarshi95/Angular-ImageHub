@@ -30,8 +30,33 @@ export class UploadImageComponent implements OnInit {
     fd.append("caption", this.uploadForm.get("caption").value);
     fd.append("image", this.uploadForm.get("image").value);
     console.log(this.uploadForm);
-    this.imageService
-      .sendImage(fd)
-      .subscribe(res => console.log(res), err => console.log(err));
+    this.imageService.sendImage(fd).subscribe(
+      res => console.log(res),
+      err => {
+        console.log(err);
+        this.setServerErrors(err);
+      }
+    );
+  }
+
+  // Method to set and remove server error response to user form
+  setServerErrors(err) {
+    if (err.error) {
+      this.uploadForm.setErrors({ serverError: err.error.message });
+    } else {
+      this.uploadForm.setErrors({ serverError: null });
+    }
+
+    if (err.error.errors) {
+      this.uploadForm
+        .get("caption")
+        .setErrors({ serverError: err.error.errors.caption });
+      this.uploadForm
+        .get("image")
+        .setErrors({ serverError: err.error.errors.image });
+    } else {
+      this.uploadForm.get("caption").setErrors({ serverError: null });
+      this.uploadForm.get("image").setErrors({ serverError: null });
+    }
   }
 }
