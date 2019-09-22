@@ -30,7 +30,7 @@ export class UploadImageComponent implements OnInit {
     fd.append("caption", this.uploadForm.get("caption").value);
     fd.append("image", this.uploadForm.get("image").value);
     console.log(this.uploadForm);
-    this.imageService.sendImage(fd).subscribe(
+    this.imageService.uploadImage(fd).subscribe(
       res => console.log(res),
       err => {
         console.log(err);

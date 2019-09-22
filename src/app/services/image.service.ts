@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { TokenService } from "./token.service";
 
 @Injectable({
@@ -10,10 +11,25 @@ export class ImageService {
   baseUrl: string = "http://localhost:8000/api";
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  sendImage(fd): Observable<any> {
+  getImages(): Observable<Blob> {
+    return this.http
+      .get(`${this.baseUrl}/download`, {
+        responseType: "blob"
+      })
+      .pipe(
+        map((res: any) => {
+          return new Blob([res], {
+            type: "application/jpg"
+          });
+        })
+      );
+  }
+
+  uploadImage(fd): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/upload`, fd, {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${this.tokenService.getToken()}`
+        Authorization: `Bearer ${this.tokenService.getToken()}`,
+        "X-Requested-With": "XMLHttpRequest"
       })
     });
   }
