@@ -5,6 +5,7 @@ import { ImagesComponent } from "./components/images/images.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { UploadImageComponent } from "./components/upload-image/upload-image.component";
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent
+  },
+  {
+    path: "upload",
+    component: UploadImageComponent
   }
 ];
 
