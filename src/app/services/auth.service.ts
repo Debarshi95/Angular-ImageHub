@@ -31,4 +31,8 @@ export class AuthService {
   logout() {
     this.tokenService.destroyToken();
   }
+
+  resetPassword(email): Observable<any> {
+    return this.http.post(`${this.baseUrl}/resetPassword`, email);
+  }
 }
