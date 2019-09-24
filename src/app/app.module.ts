@@ -13,6 +13,7 @@ import { HomeFooterComponent } from "./components/home-footer/home-footer.compon
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ImagesComponent } from "./components/images/images.component";
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UploadImageComponent } from './components/upload-image/upload-image.com
     HomeFooterComponent,
     DashboardComponent,
     ImagesComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

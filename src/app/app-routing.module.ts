@@ -6,6 +6,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { UploadImageComponent } from "./components/upload-image/upload-image.component";
+import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: "upload",
     component: UploadImageComponent
+  },
+  {
+    path: "resetpassword",
+    component: ResetPasswordComponent
   }
 ];
 
