@@ -9,6 +9,8 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class UploadImageComponent implements OnInit {
   uploadForm: FormGroup;
+  public imageUrl: string = "assets/img/placeholder.jpg";
+  base64: any;
   constructor(private imageService: ImageService) {}
 
   ngOnInit() {
@@ -22,6 +24,13 @@ export class UploadImageComponent implements OnInit {
     if (event.target.files.length > 0) {
       let file = event.target.files[0];
       this.uploadForm.get("image").setValue(file);
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+        console.log(reader);
+        this.base64 = reader.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
 

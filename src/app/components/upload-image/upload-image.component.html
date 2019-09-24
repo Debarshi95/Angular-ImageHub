@@ -6,14 +6,18 @@
 >
   {{ uploadForm.errors.serverError }}
 </div>
-<div class="card mx-auto mt-5" style="width:28rem;">
+<div class="card mx-auto mt-5 mb-5" style="width:28rem;">
   <div class="card-header"><h4>Upload an image</h4></div>
   <div class="card-body">
     <form [formGroup]="uploadForm" (ngSubmit)="uploadImage()">
       <div class="form-group">
-        <div class="form-group">
-          <img [src]="assets / img / placeholder.jpg" />
-        </div>
+        <img
+          [src]="imageUrl"
+          style="width:25rem; height:23rem;"
+          (click)="fileUploader.click()"
+        />
+      </div>
+      <div class="form-group">
         <label>Caption</label>
         <input
           type="text"
@@ -33,6 +37,7 @@
           type="file"
           class="form-control"
           name="image"
+          #fileUploader
           (change)="handleSelectedImage($event)"
           [class.is-invalid]="uploadForm.get('image').errors?.serverError"
         />

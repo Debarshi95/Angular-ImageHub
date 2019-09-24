@@ -11,18 +11,8 @@ export class ImageService {
   baseUrl: string = "http://localhost:8000/api";
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  getImages(): Observable<Blob> {
-    return this.http
-      .get(`${this.baseUrl}/download`, {
-        responseType: "blob"
-      })
-      .pipe(
-        map((res: any) => {
-          return new Blob([res], {
-            type: "application/jpg"
-          });
-        })
-      );
+  getImages(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/images`);
   }
 
   uploadImage(fd): Observable<any> {
