@@ -6,22 +6,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Requirements to run this project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Angular CLI](https://github.com/angular/angular-cli) for the Frontend.
 
-## Build
+[Laravel](https://laravel.com) for the backend.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+[Mysql]
 
-## Running unit tests
+## To run the project run both your Angular and Laravel severs simultaneously.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
 
-## Running end-to-end tests
+#### A user can register himself.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Once registered, users can upload images.
 
-## Further help
+### Forgot password option-
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Users have the option to reset their passwords
+
+#### List of all uploaded images.
+
+#### Only registered users can upload images.

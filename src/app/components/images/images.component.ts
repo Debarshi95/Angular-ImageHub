@@ -18,28 +18,28 @@ export class ImagesComponent implements OnInit {
   ngOnInit() {
     this.getImages();
   }
-  // createImage(image: Blob) {
-  //   let reader = new FileReader();
-  //   reader.addEventListener(
-  //     "load",
-  //     () => {
-  //       this.image = reader.result;
-  //     },
-  //     false
-  //   );
-  //   if (image) {
-  //     reader.readAsDataURL(image);
-  //   }
-  // }
+  createImage(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener(
+      "load",
+      () => {
+        this.image = reader.result;
+      },
+      false
+    );
+    if (image) {
+      reader.readAsDataURL(image);
+    }
+  }
 
   getImages() {
     this.imageService.getImages().subscribe(
-      res => {
-        console.log(res);
-        this.image = res;
-        console.log(this.image);
+      data => {
+        this.createImage(data);
       },
-      err => console.log(err)
+      error => {
+        console.log(error);
+      }
     );
   }
 }
