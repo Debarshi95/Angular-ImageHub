@@ -36,7 +36,7 @@ export class ImagesComponent implements OnInit {
     this.imageService.getImages().subscribe(
       res => {
         console.log(res);
-        this.image = res
+        this.image = res;
         console.log(this.image);
       },
       err => console.log(err)

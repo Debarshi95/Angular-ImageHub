@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { AuthService } from "src/app/services/auth.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-change-password",
@@ -10,9 +10,11 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ChangePasswordComponent implements OnInit {
   changePasswordForm: FormGroup;
+  successResponse: any;
   constructor(
     private authService: AuthService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,10 @@ export class ChangePasswordComponent implements OnInit {
     this.authService.changePassword(user.value).subscribe(
       res => {
         console.log(res);
+        this.successResponse = res.message;
+        setTimeout(() => {
+          this.router.navigate(["/login"]);
+        }, 3000);
       },
       err => {
         console.log(err);

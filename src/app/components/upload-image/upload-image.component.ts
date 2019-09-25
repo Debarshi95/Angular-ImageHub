@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ImageService } from "src/app/services/image.service";
 import { FormGroup, FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-upload-image",
@@ -9,9 +10,10 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class UploadImageComponent implements OnInit {
   uploadForm: FormGroup;
-  public imageUrl: string = "assets/img/placeholder.jpg";
+  imageUrl: string = "assets/img/placeholder.jpg";
   base64: any;
-  constructor(private imageService: ImageService) {}
+  successResponse: any;
+  constructor(private imageService: ImageService, private router: Router) {}
 
   ngOnInit() {
     this.uploadForm = new FormGroup({
@@ -40,7 +42,13 @@ export class UploadImageComponent implements OnInit {
     fd.append("image", this.uploadForm.get("image").value);
     console.log(this.uploadForm);
     this.imageService.uploadImage(fd).subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res);
+        this.successResponse = res.message;
+        setTimeout(() => {
+          this.router.navigate(["/images"]);
+        }, 3000);
+      },
       err => {
         console.log(err);
         this.setServerErrors(err);

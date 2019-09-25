@@ -6,6 +6,15 @@
 >
   {{ uploadForm.errors.serverError }}
 </div>
+<!-- Showing success messages(if any)  -->
+<div
+  class="alert alert-success mx-auto mt-5 text-center"
+  *ngIf="successResponse"
+  style="width:28rem;"
+>
+  {{ successResponse }}
+</div>
+
 <div class="card mx-auto mt-5 mb-5" style="width:28rem;">
   <div class="card-header"><h4>Upload an image</h4></div>
   <div class="card-body">

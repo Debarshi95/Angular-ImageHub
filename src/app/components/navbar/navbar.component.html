@@ -49,6 +49,16 @@
           >Dashboard</a
         >
       </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/"
+          routerLinkActive="active"
+          *ngIf="tokenService.checkToken()"
+          (click)="authService.logout()"
+          >Logout</a
+        >
+      </li>
     </ul>
   </div>
 </nav>
