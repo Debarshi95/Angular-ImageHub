@@ -53,7 +53,6 @@
         <a
           class="nav-link"
           routerLink="/"
-          routerLinkActive="active"
           *ngIf="tokenService.checkToken()"
           (click)="authService.logout()"
           >Logout</a
