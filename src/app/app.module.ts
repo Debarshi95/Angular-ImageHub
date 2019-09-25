@@ -12,9 +12,9 @@ import { HomeMainContentComponent } from "./components/home-main-content/home-ma
 import { HomeFooterComponent } from "./components/home-footer/home-footer.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ImagesComponent } from "./components/images/images.component";
-import { UploadImageComponent } from './components/upload-image/upload-image.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { UploadImageComponent } from "./components/upload-image/upload-image.component";
+import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
+import { ChangePasswordComponent } from "./components/change-password/change-password.component";
 
 @NgModule({
   declarations: [
