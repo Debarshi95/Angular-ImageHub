@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { HomeMainContentComponent } from "./components/home-main-content/home-main-content.component";
+import { HomeComponent } from "./components/home/home.component";
 import { ImagesComponent } from "./components/images/images.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
@@ -12,7 +12,7 @@ import { ChangePasswordComponent } from "./components/change-password/change-pas
 const routes: Routes = [
   {
     path: "",
-    component: HomeMainContentComponent,
+    component: HomeComponent,
     pathMatch: "full"
   },
   {
@@ -38,8 +38,11 @@ const routes: Routes = [
   {
     path: "resetpassword",
     component: ResetPasswordComponent
-  },{
-    path:'changepassword',component:ChangePasswordComponent}
+  },
+  {
+    path: "changepassword",
+    component: ChangePasswordComponent
+  }
 ];
 
 @NgModule({
