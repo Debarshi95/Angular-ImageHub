@@ -8,6 +8,7 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { UploadImageComponent } from "./components/upload-image/upload-image.component";
 import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
+import { AuthGuard } from "./guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -29,11 +30,13 @@ const routes: Routes = [
   },
   {
     path: "dashboard",
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "upload",
-    component: UploadImageComponent
+    component: UploadImageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "resetpassword",
