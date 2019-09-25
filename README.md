@@ -30,4 +30,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 #### Only registered users can upload images.
 
-### The backend project can be found on this [link]("https://github.com/Debarshi95/Laravel-ImageHub-Backend.git")
+### The backend project can be found on this link
+
+https://github.com/Debarshi95/Laravel-ImageHub-Backend.git
