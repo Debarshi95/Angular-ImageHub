@@ -1,15 +1,20 @@
 <div class="container">
   <div *ngIf="images">
-    <div class="card mx-auto mt-5 mb-5">
+    <div
+      class="card mx-auto mt-5 mb-5"
+      style="width: 25rem;"
+      *ngFor="let image of images"
+    >
+      <img [src]="image.url" class="card-img-top" style="height:22rem;" />
       <div class="card-body">
-        <div class="card-title">
-          <h4>{{ image.caption }}</h4>
-        </div>
-        <img [src]="image" />
+        <h5 class="card-title text-center">{{ image.caption }}</h5>
+      </div>
+      <div class="card-body text-center">
+        Lorem ipsem
+      </div>
+      <div class="card-footer text-center">
+        Uploaded by: {{ image.username }}
       </div>
     </div>
-  </div>
-  <div class="text-center">
-    <h4 class="display-4 mb-5">No images Found</h4>
   </div>
 </div>
